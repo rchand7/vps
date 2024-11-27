@@ -1,76 +1,158 @@
 @tailwind base;
-  @tailwind components;
-  @tailwind utilities;
+@tailwind components;
+@tailwind utilities;
 
-  @layer base {
-    :root {
-      --background: 0 0% 100%;
-      --foreground: 222.2 84% 4.9%;
+@layer base {
+  /* Define global custom variables */
+  :root {
+    --background-light: 0 0% 100%;
+    --foreground-light: 222.2 84% 4.9%;
+    --primary-light: 222.2 47.4% 11.2%;
+    --secondary-light: 210 40% 96.1%;
+    --accent-light: 210 40% 96.1%;
+    --muted-light: 210 40% 96.1%;
+    --destructive-light: 0 84.2% 60.2%;
+    --primary-foreground-light: 210 40% 98%;
+    --radius: 0.5rem;
 
-      --card: 0 0% 100%;
-      --card-foreground: 222.2 84% 4.9%;
-
-      --popover: 0 0% 100%;
-      --popover-foreground: 222.2 84% 4.9%;
-
-      --primary: 222.2 47.4% 11.2%;
-      --primary-foreground: 210 40% 98%;
-
-      --secondary: 210 40% 96.1%;
-      --secondary-foreground: 222.2 47.4% 11.2%;
-
-      --muted: 210 40% 96.1%;
-      --muted-foreground: 215.4 16.3% 46.9%;
-
-      --accent: 210 40% 96.1%;
-      --accent-foreground: 222.2 47.4% 11.2%;
-
-      --destructive: 0 84.2% 60.2%;
-      --destructive-foreground: 210 40% 98%;
-
-      --border: 214.3 31.8% 91.4%;
-      --input: 214.3 31.8% 91.4%;
-      --ring: 222.2 84% 4.9%;
-
-      --radius: 0.5rem;
-    }
-
-    .dark {
-      --background: 222.2 84% 4.9%;
-      --foreground: 210 40% 98%;
-
-      --card: 222.2 84% 4.9%;
-      --card-foreground: 210 40% 98%;
-
-      --popover: 222.2 84% 4.9%;
-      --popover-foreground: 210 40% 98%;
-
-      --primary: 210 40% 98%;
-      --primary-foreground: 222.2 47.4% 11.2%;
-
-      --secondary: 217.2 32.6% 17.5%;
-      --secondary-foreground: 210 40% 98%;
-
-      --muted: 217.2 32.6% 17.5%;
-      --muted-foreground: 215 20.2% 65.1%;
-
-      --accent: 217.2 32.6% 17.5%;
-      --accent-foreground: 210 40% 98%;
-
-      --destructive: 0 62.8% 30.6%;
-      --destructive-foreground: 210 40% 98%;
-
-      --border: 217.2 32.6% 17.5%;
-      --input: 217.2 32.6% 17.5%;
-      --ring: 212.7 26.8% 83.9%;
-    }
+    /* Advanced: Define more colors for light mode */
+    --primary-variant-light: 210 50% 20%;
+    --secondary-variant-light: 215 25% 50%;
   }
 
-  @layer base {
-    * {
-      @apply border-border;
-    }
+  /* Dark mode variables */
+  .dark {
+    --background-dark: 222.2 84% 4.9%;
+    --foreground-dark: 210 40% 98%;
+    --primary-dark: 210 40% 98%;
+    --secondary-dark: 217.2 32.6% 17.5%;
+    --accent-dark: 217.2 32.6% 17.5%;
+    --muted-dark: 217.2 32.6% 17.5%;
+    --destructive-dark: 0 62.8% 30.6%;
+    --primary-foreground-dark: 222.2 47.4% 11.2%;
+    --primary-variant-dark: 210 50% 30%;
+    --secondary-variant-dark: 215 25% 60%;
+  }
+
+  /* Base styles */
+  * {
+    @apply border-border;
+    box-sizing: border-box;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', sans-serif; /* Example of custom font */
+    line-height: 1.6;
+  }
+
+  /* Customize link styles globally */
+  a {
+    @apply text-primary-foreground hover:text-primary-variant-dark transition-colors;
+  }
+
+  /* Customize form elements */
+  input, textarea, select {
+    @apply border border-input rounded-md p-2;
+  }
+
+  button {
+    @apply bg-primary text-primary-foreground rounded-md p-3;
+    transition: background-color 0.2s ease-in-out;
+  }
+
+  button:hover {
+    @apply bg-primary-variant-dark;
+  }
+
+  /* Custom Scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  ::-webkit-scrollbar-thumb {
+    background-color: var(--primary);
+    border-radius: 4px;
+  }
+
+  /* Responsiveness for larger screens */
+  @screen sm {
     body {
-      @apply bg-background text-foreground;
+      font-size: 1rem; /* Small screens */
     }
   }
+
+  @screen md {
+    body {
+      font-size: 1.125rem; /* Medium screens */
+    }
+  }
+
+  @screen lg {
+    body {
+      font-size: 1.25rem; /* Large screens */
+    }
+  }
+
+  @screen xl {
+    body {
+      font-size: 1.375rem; /* Extra large screens */
+    }
+  }
+}
+
+@layer components {
+  /* Example for creating reusable component styles */
+  .card {
+    @apply bg-card rounded-lg shadow-lg p-4;
+  }
+
+  .popover {
+    @apply bg-popover text-popover-foreground p-4 rounded-lg shadow-md;
+  }
+
+  /* Button components with variants */
+  .btn-primary {
+    @apply bg-primary text-primary-foreground py-2 px-4 rounded-md;
+  }
+  
+  .btn-secondary {
+    @apply bg-secondary text-secondary-foreground py-2 px-4 rounded-md;
+  }
+  
+  .btn-destructive {
+    @apply bg-destructive text-destructive-foreground py-2 px-4 rounded-md;
+  }
+
+  .btn-outline {
+    @apply border-2 border-primary text-primary py-2 px-4 rounded-md;
+  }
+}
+
+@layer utilities {
+  /* Custom spacing utilities */
+  .space-x-custom {
+    margin-left: 0.75rem;
+  }
+
+  .space-y-custom {
+    margin-top: 0.75rem;
+  }
+
+  /* Advanced hover effects */
+  .hover-scale {
+    transition: transform 0.3s ease;
+  }
+  .hover-scale:hover {
+    transform: scale(1.05);
+  }
+
+  /* Custom font size utilities */
+  .text-xl-custom {
+    font-size: 1.25rem;
+  }
+
+  /* Box shadow utilities */
+  .shadow-lg-custom {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+}
