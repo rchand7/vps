@@ -1,6 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  darkMode: ["class"],
+  darkMode: ["class"], // Enables dark mode via class-based toggling
   content: [
     './pages/**/*.{js,jsx}',
     './components/**/*.{js,jsx}',
@@ -13,7 +13,7 @@ module.exports = {
       center: true,
       padding: "2rem",
       screens: {
-        "2xl": "1400px",
+        "2xl": "1400px", // Max container size for 2xl screens
       },
     },
     extend: {
@@ -51,6 +51,12 @@ module.exports = {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+        // Add your custom colors here
+        'primary-variant-dark': 'hsl(210, 50%, 30%)',   // Custom dark variant primary
+        'secondary-variant-dark': 'hsl(215, 25%, 60%)', // Custom dark variant secondary
+        'primary-foreground-dark': 'hsl(222.2, 47.4%, 11.2%)', // Custom foreground in dark mode
+        'primary-variant-light': 'hsl(210, 50%, 20%)',  // Custom light variant primary
+        'secondary-variant-light': 'hsl(215, 25%, 50%)', // Custom light variant secondary
       },
       borderRadius: {
         lg: "var(--radius)",
