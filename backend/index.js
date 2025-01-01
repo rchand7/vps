@@ -21,7 +21,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
 const corsOptions = {
-  origin: 'https://rozzgar.onrender.com/', // Frontend dev URL
+  origin: 'http://147.93.28.41:3000', // Frontend dev URL
   credentials: true,
 };
 
