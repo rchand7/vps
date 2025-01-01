@@ -16,7 +16,7 @@
     --primary-foreground-light: 210 40% 98%;
     --radius: 0.5rem;
 
-    /* Advanced: Define more colors for light mode */
+    /* Additional colors for light mode */
     --primary-variant-light: 210 50% 20%;
     --secondary-variant-light: 215 25% 50%;
   }
@@ -43,17 +43,23 @@
 
   body {
     @apply bg-background text-foreground;
-    font-family: 'Inter', sans-serif; /* Example of custom font */
+    font-family: 'Inter', sans-serif;
     line-height: 1.6;
   }
 
   /* Customize link styles globally */
   a {
-    @apply text-primary-foreground hover:text-primary-variant-dark transition-colors;
+    @apply text-primary-foreground transition-colors;
+  }
+
+  a:hover {
+    color: hsl(var(--primary-variant-dark));
   }
 
   /* Customize form elements */
-  input, textarea, select {
+  input,
+  textarea,
+  select {
     @apply border border-input rounded-md p-2;
   }
 
@@ -63,7 +69,7 @@
   }
 
   button:hover {
-    @apply bg-primary-variant-dark;
+    background-color: hsl(var(--primary-variant-dark));
   }
 
   /* Custom Scrollbar */
@@ -78,25 +84,25 @@
   /* Responsiveness for larger screens */
   @screen sm {
     body {
-      font-size: 1rem; /* Small screens */
+      font-size: 1rem;
     }
   }
 
   @screen md {
     body {
-      font-size: 1.125rem; /* Medium screens */
+      font-size: 1.125rem;
     }
   }
 
   @screen lg {
     body {
-      font-size: 1.25rem; /* Large screens */
+      font-size: 1.25rem;
     }
   }
 
   @screen xl {
     body {
-      font-size: 1.375rem; /* Extra large screens */
+      font-size: 1.375rem;
     }
   }
 }
@@ -115,11 +121,11 @@
   .btn-primary {
     @apply bg-primary text-primary-foreground py-2 px-4 rounded-md;
   }
-  
+
   .btn-secondary {
     @apply bg-secondary text-secondary-foreground py-2 px-4 rounded-md;
   }
-  
+
   .btn-destructive {
     @apply bg-destructive text-destructive-foreground py-2 px-4 rounded-md;
   }

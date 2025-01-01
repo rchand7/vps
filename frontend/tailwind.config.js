@@ -1,6 +1,8 @@
 /** @type {import('tailwindcss').Config} */
-module.exports = {
-  darkMode: ["class"], // Enables dark mode via class-based toggling
+import tailwindcssAnimate from "tailwindcss-animate";
+
+export default {
+  darkMode: ["class"],
   content: [
     './pages/**/*.{js,jsx}',
     './components/**/*.{js,jsx}',
@@ -13,7 +15,7 @@ module.exports = {
       center: true,
       padding: "2rem",
       screens: {
-        "2xl": "1400px", // Max container size for 2xl screens
+        "2xl": "1400px",
       },
     },
     extend: {
@@ -27,36 +29,7 @@ module.exports = {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",
         },
-        secondary: {
-          DEFAULT: "hsl(var(--secondary))",
-          foreground: "hsl(var(--secondary-foreground))",
-        },
-        destructive: {
-          DEFAULT: "hsl(var(--destructive))",
-          foreground: "hsl(var(--destructive-foreground))",
-        },
-        muted: {
-          DEFAULT: "hsl(var(--muted))",
-          foreground: "hsl(var(--muted-foreground))",
-        },
-        accent: {
-          DEFAULT: "hsl(var(--accent))",
-          foreground: "hsl(var(--accent-foreground))",
-        },
-        popover: {
-          DEFAULT: "hsl(var(--popover))",
-          foreground: "hsl(var(--popover-foreground))",
-        },
-        card: {
-          DEFAULT: "hsl(var(--card))",
-          foreground: "hsl(var(--card-foreground))",
-        },
-        // Add your custom colors here
-        'primary-variant-dark': 'hsl(210, 50%, 30%)',   // Custom dark variant primary
-        'secondary-variant-dark': 'hsl(215, 25%, 60%)', // Custom dark variant secondary
-        'primary-foreground-dark': 'hsl(222.2, 47.4%, 11.2%)', // Custom foreground in dark mode
-        'primary-variant-light': 'hsl(210, 50%, 20%)',  // Custom light variant primary
-        'secondary-variant-light': 'hsl(215, 25%, 50%)', // Custom light variant secondary
+        // Add custom colors here
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -79,5 +52,5 @@ module.exports = {
       },
     },
   },
-  plugins: [require("tailwindcss-animate")],
-}
+  plugins: [tailwindcssAnimate],
+};
